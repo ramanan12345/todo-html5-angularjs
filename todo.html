@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html ng-app>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/todo.js"></script>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">TODO</a>
+        </div>
+      </div>
+    </div>
+  
+	<div class="container" ng-controller='todoCtrl'>
+		<form class="form-inline" ng-submit='addTodo(todoText)'>
+			<input type='text' class='form-control' placeholder='to do' ng-model='todoText'/>
+			<button type='submit' class='btn btn-primary'><span class='glyphicon glyphicon-plus'></span></button>
+		</form>
+		<br>
+		<table class='table'>
+			<tr ng-repeat='todo in todos track by $index'>
+				<td><span>{{todo.text}}</span></td>
+				<td><button class='btn btn-sm btn-primary' ng-click='removeTodo($index)'><span class='glyphicon glyphicon-minus'></span></button></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
