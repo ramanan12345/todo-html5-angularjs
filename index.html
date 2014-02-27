@@ -20,8 +20,12 @@
   
 	<div class="container" ng-controller='todoCtrl'>
 		<form class="form-inline" ng-submit='addTodo(todoText)'>
-			<input type='text' class='form-control' placeholder='to do' ng-model='todoText'/>
-			<button type='submit' class='btn btn-primary'><span class='glyphicon glyphicon-plus'></span></button>
+			<div class='input-group'>
+				<input type='text' class='form-control' placeholder='to do' ng-model='todoText'/>
+				<span class="input-group-btn">
+					<button type='submit' class='btn btn-primary'><span class='glyphicon glyphicon-plus'></span></button>
+				</span>
+			</div>
 		</form>
 		<br>
 		<table class='table'>
