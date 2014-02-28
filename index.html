@@ -11,11 +11,24 @@
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">TODO</a>
-        </div>
-      </div>
+		<div class="container">
+			<a class="navbar-brand" href="#">TODO</a>
+			
+			<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navbar-collapse">
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+			</button>
+		   
+			<div class = "collapse navbar-collapse navHeaderCollapse">
+				<ul class = "nav navbar-nav navbar-right">
+					<li class="active"><a href = "#">Home</a></li>
+					<li><a href = "#">Sign In</a></li>
+					<li><a href = "#">Sign Up</a></li>
+				</ul>
+			</div>
+			
+		</div>
     </div>
   
 	<div class="container" ng-controller='todoCtrl'>
@@ -23,7 +36,9 @@
 			<div class='input-group'>
 				<input type='text' class='form-control' placeholder='to do' ng-model='todoText'/>
 				<span class="input-group-btn">
-					<button type='submit' class='btn btn-primary'><span class='glyphicon glyphicon-plus'></span></button>
+					<button type='submit' class='btn btn-primary' ng-disabled='!todoText'>
+						<span class='glyphicon glyphicon-plus'></span>
+					</button>
 				</span>
 			</div>
 		</form>
@@ -31,7 +46,11 @@
 		<table class='table'>
 			<tr ng-repeat='todo in todos track by $index'>
 				<td><span>{{todo.text}}</span></td>
-				<td><button class='btn btn-sm btn-primary' ng-click='removeTodo($index)'><span class='glyphicon glyphicon-minus'></span></button></td>
+				<td>
+					<button class='btn btn-sm btn-primary pull-right' ng-click='removeTodo($index)'>
+						<span class='glyphicon glyphicon-minus'></span>
+					</button>
+				</td>
 			</tr>
 		</table>
 	</div>

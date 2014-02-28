@@ -1,6 +1,9 @@
 ﻿function todoCtrl($scope){
 	$scope.todos = [];
 	$scope.addTodo = function(todoText){
+		if(!todoText){
+			return;
+		}
 		var todo = {
 			text: todoText,
 			done: false
