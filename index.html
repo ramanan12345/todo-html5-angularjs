@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html ng-app>
+<html ng-app='todoApp'>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -7,6 +7,7 @@
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/angular.min.js"></script>
+<script src="js/angular-touch.min.js"></script>
 <script src="js/todo.js"></script>
 </head>
 <body>
@@ -45,11 +46,19 @@
 		<br>
 		<table class='table'>
 			<tr ng-repeat='todo in todos track by $index'>
-				<td><span>{{todo.text}}</span></td>
+				<td><span class='todo-{{todo.done}}'>{{todo.text}}</span></td>
 				<td>
-					<button class='btn btn-sm btn-primary pull-right' ng-click='removeTodo($index)'>
-						<span class='glyphicon glyphicon-minus'></span>
-					</button>
+					<div class='text-right'>
+						<button class='btn btn-primary btn-sm' ng-show='!todo.done' ng-click='doneTodo(todo)'>
+							<span class='glyphicon glyphicon-ok'></span>
+						</button>
+						<button class='btn btn-primary btn-sm' ng-show='todo.done' ng-click='reopenTodo(todo)'>
+							<span class='glyphicon glyphicon-repeat'></span>
+						</button>
+						<button class='btn btn-sm btn-danger' ng-click='removeTodo($index)'>
+							<span class='glyphicon glyphicon-minus'></span>
+						</button>
+					</div>
 				</td>
 			</tr>
 		</table>
