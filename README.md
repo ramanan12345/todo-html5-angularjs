@@ -1,3 +1,3 @@
 angular-phonegap-test
 =====================
-phonegap build test
+phonegap build test with angular
