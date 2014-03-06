@@ -8,6 +8,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/angular-touch.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
 <script src="js/todo.js"></script>
 </head>
 <body>
@@ -45,7 +46,7 @@
 		</form>
 		<br>
 		<table class='table'>
-			<tr ng-repeat='todo in todos track by $index'>
+			<tr ng-repeat='todo in todos track by $index' class='animated'>
 				<td><span class='todo-{{todo.done}}'>{{todo.text}}</span></td>
 				<td>
 					<div class='text-right'>
@@ -62,6 +63,7 @@
 				</td>
 			</tr>
 		</table>
+		
 	</div>
 </body>
 </html>

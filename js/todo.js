@@ -1,4 +1,4 @@
-﻿var app = angular.module('todoApp',['ngTouch']);
+﻿var app = angular.module('todoApp',['ngTouch','ngAnimate']);
 
 app.controller('todoCtrl',function($scope){
 	$scope.todos = [];

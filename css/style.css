@@ -5,3 +5,43 @@ body {
 .todo-true {
 	text-decoration: line-through;
 }
+
+.animated.ng-enter, 
+.animated.ng-leave, 
+.animated.ng-move {
+  -moz-transition: 0.2s linear all;
+  -webkit-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+}
+
+.animated.ng-enter {
+	left: -20px;
+	opacity: 0;
+	-moz-transform: scale(0);
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+
+.animated.ng-enter.ng-enter-active{
+	opacity: 1;
+	left: 0px;
+	-moz-transform: scale(1);
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.animated.ng-leave {
+	opacity: 1;
+	left: 0px;
+	-moz-transform: scale(1);
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.animated.ng-leave.ng-leave-active {
+	right: -20px;
+	opacity: 0;
+	-moz-transform: scale(0);
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
