@@ -1,12 +1,69 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <title>Todo-html5-angularjs</title>
-  </head>
-
-  <body>
-	<h1>Hello github pages</h1>
-  </body>
+﻿<!doctype html>
+<html ng-app='todoApp'>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-touch.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/todo.js"></script>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<a class="navbar-brand" href="#">TODO</a>
+			
+			<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navbar-collapse">
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+			</button>
+		   
+			<div class = "collapse navbar-collapse navHeaderCollapse">
+				<ul class = "nav navbar-nav navbar-right">
+					<li class="active"><a href = "#">Home</a></li>
+					<li><a href = "#">Sign In</a></li>
+					<li><a href = "#">Sign Up</a></li>
+				</ul>
+			</div>
+			
+		</div>
+    </div>
+  
+	<div class="container" ng-controller='todoCtrl'>
+		<form class="form-inline" ng-submit='addTodo(todoText)'>
+			<div class='input-group'>
+				<input type='text' class='form-control' placeholder='to do' ng-model='todoText'/>
+				<span class="input-group-btn">
+					<button type='submit' class='btn btn-primary' ng-disabled='!todoText'>
+						<span class='glyphicon glyphicon-plus'></span>
+					</button>
+				</span>
+			</div>
+		</form>
+		<br>
+		<table class='table'>
+			<tr ng-repeat='todo in todos track by $index' class='animated'>
+				<td><span class='todo-{{todo.done}}'>{{todo.text}}</span></td>
+				<td>
+					<div class='text-right'>
+						<button class='btn btn-primary btn-sm' ng-show='!todo.done' ng-click='doneTodo(todo)'>
+							<span class='glyphicon glyphicon-ok'></span>
+						</button>
+						<button class='btn btn-default btn-sm' ng-show='todo.done' ng-click='reopenTodo(todo)'>
+							<span class='glyphicon glyphicon-repeat'></span>
+						</button>
+						<button class='btn btn-sm btn-danger' ng-click='removeTodo($index)'>
+							<span class='glyphicon glyphicon-minus'></span>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</body>
 </html>
